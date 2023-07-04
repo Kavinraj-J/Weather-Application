@@ -8,7 +8,8 @@ the information taken from the Visual Crossing Weather API in a clean
 and organized fashion to its users.
 
 ### User Preview
-![Preview]([/Users/Kavinraj/Weather_Application/Read Me Resources/User_Interface_Preview.png](https://github.com/ComicBolt/Weather-Application/assets/88584708/8f59766f-30f0-411b-92f4-ae8dbc759109))
+<img width="701" alt="User_Interface_Preview" src="https://github.com/ComicBolt/Weather-Application/assets/88584708/2d437b77-ecaf-4a61-b718-5c363540181f">
+
 
 ### Current Features
 - Can display the current temperature at user's location

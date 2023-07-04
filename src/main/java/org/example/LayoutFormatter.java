@@ -54,6 +54,8 @@ public class LayoutFormatter {
             }
         }
 
+        all.add(space);
+
 
 
 

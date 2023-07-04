@@ -3,23 +3,15 @@ package org.example;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.stream.Stream;
-
-import org.apache.http.client.utils.URIBuilder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import static java.lang.Integer.parseInt;
 
 public class WeatherApiRequest {
     private String apiEndPoint="https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
-    //private String location="North Brunswick ,NJ";
-    private String startDate=null; //optional (omit for forecast)
-    private String endDate=null; //optional (requires a startDate if present)
-    private String unitGroup="us"; //us,metric,uk
-    private String apiKey="5XMSRZXGDR8BYV82WN2HQH97W";
+    ApiKey key = new ApiKey();
+    private String apiKey= key.apiKey;
     private String ApiResponse;
     private JSONObject responseJson;
     private JSONArray val;
@@ -58,7 +50,7 @@ public class WeatherApiRequest {
             val = responseJson.getJSONArray("days");
 
         }catch (Exception e){
-            System.out.println(e);
+            System.out.println("Sorry Invalid City entered");
         }
 
     }

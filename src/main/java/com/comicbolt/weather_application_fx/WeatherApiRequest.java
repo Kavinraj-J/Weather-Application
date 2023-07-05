@@ -21,12 +21,13 @@ public class WeatherApiRequest {
     private String ApiResponse;
     private JSONObject responseJson;
     private JSONArray val;
-    private startingScreenController ssc;
+
+
+
 
     //private String location;
 
     public WeatherApiRequest(String location){
-        ssc = new startingScreenController();
 
 
         try {
@@ -81,11 +82,52 @@ public class WeatherApiRequest {
     }
 //TODO Finish time label and setup
 
-//    public String getCurrentTime(){
-//        ZonedDateTime zonedDateTime = ZonedDateTime.now( ZoneOffset.UTC );
-//        String time = zonedDateTime.toString();
-//        time = time.substring(12,)
-//    }
+    public String getTimeAtLocation(){
+        ZonedDateTime zonedDateTime = ZonedDateTime.now( ZoneOffset.UTC );
+        int hour = Integer.parseInt(zonedDateTime.toString().substring(11,13));
+        int min = Integer.parseInt(zonedDateTime.toString().substring(14,16));
+        double tzoffset = responseJson.getDouble("tzoffset");
+
+        if(((tzoffset)/((int) tzoffset) % 0) != 0){
+            hour = hour + (int) tzoffset;
+            min = min + 30;
+        }
+        else{
+            hour = hour + (int) tzoffset;
+        }
+
+
+        if(hour > 12){
+            hour = hour - 12;
+            if(min < 10){
+                return hour + ":0" + min;
+            }
+            else{
+                return hour + ":" + min;
+            }
+        }
+        else{
+            if(min < 10){
+                return hour + ":0" + min;
+            }
+            else{
+                return hour + ":" + min;
+            }
+        }
+    }
+
+    public String AmOrPm(){
+        ZonedDateTime zonedDateTime = ZonedDateTime.now( ZoneOffset.UTC );
+        int hour = Integer.parseInt(zonedDateTime.toString().substring(11,13));
+        int tzoffset = responseJson.getInt("tzoffset");
+        hour = hour + tzoffset;
+        if(hour > 11){
+            return "PM";
+        }
+        else{
+            return "AM";
+        }
+    }
 
     public String getDayOfWeek(String rawDate){
         int year = Integer.parseInt(rawDate.substring(0,4));

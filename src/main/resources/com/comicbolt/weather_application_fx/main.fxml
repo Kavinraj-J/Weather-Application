@@ -34,12 +34,12 @@
                         </Label>
                      </children>
                   </VBox>
-                  <Label alignment="CENTER" prefHeight="122.0" prefWidth="198.0" text="10:49">
+                  <Label fx:id="timeLabel" alignment="CENTER" prefHeight="122.0" prefWidth="198.0" text="10:49">
                      <font>
                         <Font size="64.0" />
                      </font>
                   </Label>
-                  <Label alignment="BOTTOM_LEFT" prefHeight="135.0" prefWidth="155.0" text="PM">
+                  <Label fx:id="AmPmLabel" alignment="BOTTOM_LEFT" prefHeight="135.0" prefWidth="155.0" text="PM">
                      <font>
                         <Font size="36.0" />
                      </font>

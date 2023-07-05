@@ -1,8 +1,12 @@
 package com.comicbolt.weather_application_fx;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -11,12 +15,14 @@ public class mainScreenController {
     @FXML
     private Label locationLabel, dateLabel, conditionLabel,
             currentTempLabel, currentDayHighLabel,currentDayLowLabel,
-            alertLabel, dayLabel;
-
+            alertLabel, dayLabel,timeLabel, AmPmLabel;
     @FXML
     private ScrollPane alertPane;
-
     private WeatherApiRequest api;
+    private Thread MinuteUpdater;
+
+
+    private int  minCounter = 0, hourCounter = 0,secCounter = 0, hour,min;
 
     public void setLabels(String location){
         api = new WeatherApiRequest(location);
@@ -26,9 +32,14 @@ public class mainScreenController {
         ArrayList<Integer> minTemp = api.getMinTempArray();
         ArrayList<String> alertArray = api.getAlertArray();
         ArrayList<String> dayArray = api.getDayOfWeekArray();
+
+        MinuteUpdater = new Thread(this::MinuteUpdater);
+        MinuteUpdater.start();
         //System.out.println(dayArray);
 
         locationLabel.setText(api.getLocation());
+        timeLabel.setText(api.getTimeAtLocation());
+        AmPmLabel.setText(api.AmOrPm());
         dayLabel.setText(dayArray.get(0));
         dateLabel.setText(dateArray.get(0));
         conditionLabel.setText(conditions.get(0));
@@ -47,9 +58,58 @@ public class mainScreenController {
         alertPane.setContent(alertLabel);
 
 
+    }
+
+    //timeLabel.setText(api.getTimeAtLocation());
+    public void MinuteUpdater(){
+        String currentTime = api.getTimeAtLocation();
+        hour = Integer.parseInt(currentTime.substring(0,currentTime.indexOf(":")));
+        min = Integer.parseInt(currentTime.substring(currentTime.indexOf(":")+1));
+        minCounter = 0;
+        hourCounter = 0;
+        secCounter = 0;
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),e -> {
+
+            if(secCounter == 60){
+                minCounter++;
+                min = min + minCounter;
+                if(min < 10){
+                    timeLabel.setText(hour + ":0" + min);
+                }
+                else{
+                    timeLabel.setText(hour + ":" + min);
+                }
+                secCounter = 0;
+            }
+
+            if (minCounter == 60){
+                hourCounter++;
+                hour = hour + hourCounter;
+                if(min < 10){
+                    timeLabel.setText(hour + ":0" + min);
+                }
+                else{
+                    timeLabel.setText(hour + ":" + min);
+                }
+                minCounter = 0;
+            }
+
+            if(AmPmLabel.getText().equals("AM") && hour == 12){
+                AmPmLabel.setText("PM");
+            }
+            if(AmPmLabel.getText().equals("PM") && hour == 12){
+                AmPmLabel.setText("AM");
+            }
+
+            secCounter++;
+            System.out.println(secCounter);
 
 
+        }));
 
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
 
     }
 

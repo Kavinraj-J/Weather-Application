@@ -84,52 +84,68 @@ public class WeatherApiRequest {
 
     public String getTimeAtLocation(){
         ZonedDateTime zonedDateTime = ZonedDateTime.now( ZoneOffset.UTC );
-        int hour = Integer.parseInt(zonedDateTime.toString().substring(11,13));
+        double hour = Integer.parseInt(zonedDateTime.toString().substring(11,13));
         int min = Integer.parseInt(zonedDateTime.toString().substring(14,16));
         double tzoffset = responseJson.getDouble("tzoffset");
 
-        if(((tzoffset)/((int) tzoffset) % 0) != 0){
-            hour = hour + (int) tzoffset;
+        if(hour > 12){
+            hour = hour - 12;
+        }
+
+        hour = hour + tzoffset;
+
+        if(hour > 12){
+            hour = hour - 12;
+        }
+
+        if(hour - ((int) hour ) == 0.5){
             min = min + 30;
             if(min > 59){
                 min = min - 60;
             }
         }
-        else{
-            hour = hour + (int) tzoffset;
-        }
+        System.out.println(hour +":" + min );
 
 
-        if(hour > 12){
-            hour = hour - 12;
-            if(min < 10){
-                return hour + ":0" + min;
-            }
-            else{
-                return hour + ":" + min;
-            }
-        }
-        else{
-            if(min < 10){
-                return hour + ":0" + min;
-            }
-            else{
-                return hour + ":" + min;
-            }
-        }
+
+       return ((int)hour) + ":" + min;
+
+
     }
 
     public String AmOrPm(){
         ZonedDateTime zonedDateTime = ZonedDateTime.now( ZoneOffset.UTC );
         int hour = Integer.parseInt(zonedDateTime.toString().substring(11,13));
-        int tzoffset = responseJson.getInt("tzoffset");
-        hour = hour + tzoffset;
+        int tzoffset = responseJson.getInt("tzoffset"); //6
+        boolean Am = false;
+        boolean Pm = false; //2.00pm     14.00
         if(hour > 11){
-            return "PM";
+            Pm = true;
+            Am = false;
         }
-        else{
+
+        if(hour > 12){
+            hour = hour - 12; //2
+        }
+
+        hour = hour + tzoffset; //8
+
+        if(hour > 12){
+            Am = true;
+            Pm = false;
+
+            hour = hour - 12;
+        }
+
+        if(Am){
             return "AM";
         }
+        if(Pm){
+            return "PM";
+        }
+
+        return " ";
+
     }
 
     public String getDayOfWeek(String rawDate){
@@ -186,7 +202,7 @@ public class WeatherApiRequest {
 
     public String getLocation(){
         String location = responseJson.getString("resolvedAddress");
-        System.out.println(location);
+        //System.out.println(location);
         return location;
     }
 

@@ -80,49 +80,49 @@ public class mainScreenController {
 
     //timeLabel.setText(api.getTimeAtLocation());
     public void MinuteUpdater(){
-        String currentTime = api.getTimeAtLocation();
-        hour = Integer.parseInt(currentTime.substring(0,currentTime.indexOf(":")));
-        min = Integer.parseInt(currentTime.substring(currentTime.indexOf(":")+1));
-        minCounter = 0;
-        hourCounter = 0;
-        secCounter = 0;
+//        String currentTime = api.getTimeAtLocation();
+//        hour = Integer.parseInt(currentTime.substring(0,currentTime.indexOf(":")));
+//        min = Integer.parseInt(currentTime.substring(currentTime.indexOf(":")+1));
+//        minCounter = 0;
+//        hourCounter = 0;
+//        secCounter = 0;
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),e -> {
 
-            if(secCounter == 60){
-                minCounter++;
-                min = min + minCounter;
-                if(min < 10){
-                    timeLabel.setText(hour + ":0" + min);
-                }
-                else{
-                    timeLabel.setText(hour + ":" + min);
-                }
-                secCounter = 0;
-            }
-
-            if (minCounter == 60){
-                hourCounter++;
-                hour = hour + hourCounter;
-                if(min < 10){
-                    timeLabel.setText(hour + ":0" + min);
-                }
-                else{
-                    timeLabel.setText(hour + ":" + min);
-                }
-                minCounter = 0;
-            }
-
-            if(AmPmLabel.getText().equals("AM") && hour == 12){
-                AmPmLabel.setText("PM");
-            }
-            if(AmPmLabel.getText().equals("PM") && hour == 12){
-                AmPmLabel.setText("AM");
-            }
-
-            secCounter++;
-            System.out.println(secCounter);
-
+//            if(secCounter == 60){
+//                minCounter++;
+//                min = min + minCounter;
+//                if(min < 10){
+//                    timeLabel.setText(hour + ":0" + min);
+//                }
+//                else{
+//                    timeLabel.setText(hour + ":" + min);
+//                }
+//                secCounter = 0;
+//            }
+//
+//            if (minCounter == 60){
+//                hourCounter++;
+//                hour = hour + hourCounter;
+//                if(min < 10){
+//                    timeLabel.setText(hour + ":0" + min);
+//                }
+//                else{
+//                    timeLabel.setText(hour + ":" + min);
+//                }
+//                minCounter = 0;
+//            }
+//
+//            if(AmPmLabel.getText().equals("AM") && hour == 12){
+//                AmPmLabel.setText("PM");
+//            }
+//            if(AmPmLabel.getText().equals("PM") && hour == 12){
+//                AmPmLabel.setText("AM");
+//            }
+//
+//            secCounter++;
+//           // System.out.println(secCounter);
+            timeLabel.setText(api.getTimeAtLocation());
 
         }));
 

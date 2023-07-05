@@ -1,0 +1,27 @@
+package com.comicbolt.weather_application_fx;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+public class mainScreen extends Application {
+
+    private startingScreenController s = new startingScreenController();
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(mainScreen.class.getResource("main.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1315, 760);
+        scene.getStylesheets().addAll(this.getClass().getResource("mainScreen.css").toExternalForm());
+        stage.setTitle("FindMyWeather");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+
+        launch();
+    }
+}

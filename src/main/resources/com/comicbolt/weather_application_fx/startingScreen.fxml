@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@startingScreen.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comicbolt.weather_application_fx.startingScreenController">
+    <children>
+        <Label fx:id="weatherApplicationHomeLabel" alignment="CENTER" layoutY="59.0" prefHeight="87.0" prefWidth="600.0" text="FindMyWeather" textAlignment="CENTER">
+         <font>
+            <Font name="Courier New" size="35.0" />
+         </font></Label>
+      <TextField fx:id="locationTextView" layoutX="174.0" layoutY="213.0" onAction="#getLocation" prefHeight="35.0" prefWidth="252.0" promptText="Location">
+         <font>
+            <Font name="Copperplate" size="16.0" />
+         </font>
+      </TextField>
+    </children>
+</AnchorPane>

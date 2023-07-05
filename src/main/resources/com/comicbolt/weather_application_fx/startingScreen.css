@@ -1,0 +1,7 @@
+.root{
+    -fx-background-image: url("Images/StartingScreenBackground.jpeg");
+}
+
+.label{
+    -fx-text-fill: "white";
+}

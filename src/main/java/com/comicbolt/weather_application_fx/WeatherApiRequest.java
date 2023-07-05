@@ -60,7 +60,7 @@ public class WeatherApiRequest {
             //System.out.println(responseJson.getString("timezone"));
 
             val = responseJson.getJSONArray("days");
-            hours = responseJson.getJSONArray("hours");
+            //hours = responseJson.getJSONArray("hours");
 
 
 
@@ -76,12 +76,30 @@ public class WeatherApiRequest {
 //    }
 
     public int getCurrentTemp(){
-        JSONObject currentDay = val.getJSONObject(0);
-        int currentTemp = (int) Math.round(currentDay.getDouble("temp"));
-        ZonedDateTime currentDate = ZonedDateTime.now( ZoneOffset.UTC );
-        System.out.println(currentDate);
+        ArrayList<Integer> hourArray = getHourArray();
+        int hour = Integer.parseInt(getTimeAtLocation().substring(0,getTimeAtLocation().indexOf(":")));
+        if(AmOrPm().equals("PM")){
+            hour = hour + 12;
+        }
+        int currentTemp = hourArray.get(hour);
 
         return currentTemp;
+
+    }
+
+    public ArrayList<Integer> getHourArray(){
+        JSONObject currentDay = val.getJSONObject(0);
+        int currentTemp = (int) Math.round(currentDay.getDouble("temp"));
+        JSONArray hours = currentDay.getJSONArray("hours");
+        ArrayList<Integer> hourlyTemp = new ArrayList<Integer>();
+        for(int i = 0; i<hours.length();i++){
+            JSONObject temp  = hours.getJSONObject(i);
+
+            hourlyTemp.add((int) Math.round(temp.getDouble("temp")));
+        }
+
+
+        return hourlyTemp;
 
     }
 //TODO Finish time label and setup

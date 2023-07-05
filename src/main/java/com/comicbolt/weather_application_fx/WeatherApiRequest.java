@@ -91,6 +91,9 @@ public class WeatherApiRequest {
         if(((tzoffset)/((int) tzoffset) % 0) != 0){
             hour = hour + (int) tzoffset;
             min = min + 30;
+            if(min > 59){
+                min = min - 60;
+            }
         }
         else{
             hour = hour + (int) tzoffset;

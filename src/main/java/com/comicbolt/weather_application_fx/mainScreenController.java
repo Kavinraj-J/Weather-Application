@@ -18,6 +18,12 @@ public class mainScreenController {
             alertLabel, dayLabel,timeLabel, AmPmLabel;
     @FXML
     private ScrollPane alertPane;
+
+
+    @FXML
+    private Label day1,day2,day3,day4,day5,day6,day7,day8,day9,day10;
+    @FXML
+    private Label[] ForecastDays;
     private WeatherApiRequest api;
     private Thread MinuteUpdater;
 
@@ -32,6 +38,7 @@ public class mainScreenController {
         ArrayList<Integer> minTemp = api.getMinTempArray();
         ArrayList<String> alertArray = api.getAlertArray();
         ArrayList<String> dayArray = api.getDayOfWeekArray();
+        ForecastDays = new Label[]{day1, day2, day3, day4, day5, day6, day7, day8, day9, day10};
 
         MinuteUpdater = new Thread(this::MinuteUpdater);
         MinuteUpdater.start();
@@ -56,6 +63,17 @@ public class mainScreenController {
 
         alertLabel.setText("ALERT AREA GONNA BE SEPERATE WINDOW!!");
         alertPane.setContent(alertLabel);
+
+
+        for(int i = 1; i < dayArray.size(); i++){
+            for(int j = 0; j<ForecastDays.length; j++){
+                if(i == j+1){
+                    ForecastDays[j].setText(dayArray.get(i));
+                }
+            }
+
+        }
+
 
 
     }

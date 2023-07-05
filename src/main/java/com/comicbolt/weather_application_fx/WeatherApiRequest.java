@@ -21,6 +21,7 @@ public class WeatherApiRequest {
     private String ApiResponse;
     private JSONObject responseJson;
     private JSONArray val;
+    private JSONArray hours;
 
 
 
@@ -59,6 +60,9 @@ public class WeatherApiRequest {
             //System.out.println(responseJson.getString("timezone"));
 
             val = responseJson.getJSONArray("days");
+            hours = responseJson.getJSONArray("hours");
+
+
 
         }catch (Exception e){
             System.out.println("Sorry Invalid City entered");
@@ -104,11 +108,15 @@ public class WeatherApiRequest {
                 min = min - 60;
             }
         }
-        System.out.println(hour +":" + min );
+        //System.out.println(hour +":" + min );
 
 
 
-       return ((int)hour) + ":" + min;
+        if(min < 10){
+            return ((int)hour) + ":0" + min;
+        }
+
+        return ((int)hour) + ":" + min;
 
 
     }

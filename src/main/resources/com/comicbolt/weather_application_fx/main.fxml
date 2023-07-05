@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comicbolt.weather_application_fx.mainScreenController">
+<HBox layoutX="5.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comicbolt.weather_application_fx.mainScreenController">
    <children>
       <VBox prefHeight="750.0" prefWidth="730.0">
          <children>
@@ -98,12 +98,12 @@
                         <Image url="@Images/sunnyIcon.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
+                  <Label fx:id="highday1" alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
+                  <Label fx:id="lowday1" alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -122,12 +122,12 @@
                         <Image url="@Images/rainingIcon.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
+                  <Label fx:id="highday2" alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
+                  <Label fx:id="lowday2" alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -146,12 +146,12 @@
                         <Image url="@Images/cloudyIcon.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
+                  <Label fx:id="highday3" alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
+                  <Label fx:id="lowday3" alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -170,12 +170,12 @@
                         <Image url="@Images/sunnyIcon.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
+                  <Label fx:id="highday4" alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
+                  <Label fx:id="lowday4" alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -194,12 +194,12 @@
                         <Image url="@Images/sunnyIcon.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
+                  <Label fx:id="highday5" alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
+                  <Label fx:id="lowday5" alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -218,12 +218,12 @@
                         <Image url="@Images/sunnyIcon.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
+                  <Label fx:id="highday6" alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
+                  <Label fx:id="lowday6" alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -242,12 +242,12 @@
                         <Image url="@Images/sunnyIcon.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
+                  <Label fx:id="highday7" alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
+                  <Label fx:id="lowday7" alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -266,12 +266,12 @@
                         <Image url="@Images/sunnyIcon.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
+                  <Label fx:id="highday8" alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
+                  <Label fx:id="lowday8" alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -290,12 +290,12 @@
                         <Image url="@Images/sunnyIcon.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
+                  <Label fx:id="highday9" alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
+                  <Label fx:id="lowday9" alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -314,12 +314,12 @@
                         <Image url="@Images/sunnyIcon.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
+                  <Label fx:id="highday10" alignment="CENTER" prefHeight="72.0" prefWidth="146.0" text="High: 78">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
+                  <Label fx:id="lowday10" alignment="CENTER" prefHeight="72.0" prefWidth="120.0" text="Low: 58">
                      <font>
                         <Font size="24.0" />
                      </font>

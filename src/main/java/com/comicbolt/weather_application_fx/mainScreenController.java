@@ -23,7 +23,15 @@ public class mainScreenController {
     @FXML
     private Label day1,day2,day3,day4,day5,day6,day7,day8,day9,day10;
     @FXML
+    private Label highday1,highday2,highday3,highday4,highday5,highday6,highday7,highday8,highday9,highday10;
+    @FXML
+    private Label lowday1,lowday2,lowday3,lowday4,lowday5,lowday6,lowday7,lowday8,lowday9,lowday10;
+    @FXML
     private Label[] ForecastDays;
+    @FXML
+    private Label[] highDays;
+    @FXML
+    private Label[] lowDays;
     private WeatherApiRequest api;
     private Thread MinuteUpdater;
 
@@ -39,6 +47,8 @@ public class mainScreenController {
         ArrayList<String> alertArray = api.getAlertArray();
         ArrayList<String> dayArray = api.getDayOfWeekArray();
         ForecastDays = new Label[]{day1, day2, day3, day4, day5, day6, day7, day8, day9, day10};
+        highDays = new Label[]{highday1, highday2, highday3, highday4, highday5, highday6, highday7, highday8, highday9, highday10};
+        lowDays = new Label[]{lowday1, lowday2, lowday3, lowday4, lowday5, lowday6, lowday7, lowday8, lowday9, lowday10};
 
         MinuteUpdater = new Thread(this::MinuteUpdater);
         MinuteUpdater.start();
@@ -73,6 +83,27 @@ public class mainScreenController {
             }
 
         }
+
+        System.out.println(maxTemp);
+        for(int i = 1; i < maxTemp.size(); i++){
+            for(int j = 0; j<highDays.length; j++){
+                if(i == j+1){
+                    highDays[j].setText("High: " + maxTemp.get(i));
+                }
+            }
+
+        }
+
+        System.out.println(minTemp);
+        for(int i = 1; i < minTemp.size(); i++){
+            for(int j = 0; j<lowDays.length; j++){
+                if(i == j+1){
+                    lowDays[j].setText("Low: " + minTemp.get(i));
+                }
+            }
+
+        }
+
 
 
 

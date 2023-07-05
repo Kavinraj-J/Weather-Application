@@ -43,9 +43,11 @@ Be sure to not include the `.jar` file name.
 - [x] Basic 15-day weather forecast display
 - [ ] Create an option to get the users location automatically
 - [ ] Add hour by hour weather forecast
-- [ ] Change from command line application to desktop application **Priority**
+- [ ] Change from command line application to desktop application **PRIORITY**
 - [ ] Celsius/Fahrenheit toggle
 
+### Updates in development
+- Converting from command line application to desktop application
 
 ### Note
 This is an experimental project :)

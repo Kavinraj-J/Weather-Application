@@ -3,12 +3,15 @@ package com.comicbolt.weather_application_fx;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -81,9 +84,11 @@ public class WeatherApiRequest {
         if(AmOrPm().equals("PM")){
             hour = hour + 12;
         }
+        System.out.println(hour);
         int currentTemp = hourArray.get(hour);
 
         return currentTemp;
+
 
     }
 
@@ -105,72 +110,24 @@ public class WeatherApiRequest {
 //TODO Finish time label and setup
 
     public String getTimeAtLocation(){
-        ZonedDateTime zonedDateTime = ZonedDateTime.now( ZoneOffset.UTC );
-        double hour = Integer.parseInt(zonedDateTime.toString().substring(11,13));
-        int min = Integer.parseInt(zonedDateTime.toString().substring(14,16));
-        double tzoffset = responseJson.getDouble("tzoffset");
+        String tz = responseJson.getString("timezone");
+        Date currentTime = new Date();
 
-        if(hour > 12){
-            hour = hour - 12;
-        }
-
-        hour = hour + tzoffset;
-
-        if(hour > 12){
-            hour = hour - 12;
-        }
-
-        if(hour - ((int) hour ) == 0.5){
-            min = min + 30;
-            if(min > 59){
-                min = min - 60;
-            }
-        }
-        //System.out.println(hour +":" + min );
-
-
-
-        if(min < 10){
-            return ((int)hour) + ":0" + min;
-        }
-
-        return ((int)hour) + ":" + min;
-
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm aa");
+        sdf.setTimeZone(TimeZone.getTimeZone(tz));
+        System.out.println(sdf.format(currentTime));
+        return sdf.format(currentTime).substring(0,6);
 
     }
 
     public String AmOrPm(){
-        ZonedDateTime zonedDateTime = ZonedDateTime.now( ZoneOffset.UTC );
-        int hour = Integer.parseInt(zonedDateTime.toString().substring(11,13));
-        int tzoffset = responseJson.getInt("tzoffset"); //6
-        boolean Am = false;
-        boolean Pm = false; //2.00pm     14.00
-        if(hour > 11){
-            Pm = true;
-            Am = false;
-        }
+        String tz = responseJson.getString("timezone");
+        Date currentTime = new Date();
 
-        if(hour > 12){
-            hour = hour - 12; //2
-        }
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm aa");
+        sdf.setTimeZone(TimeZone.getTimeZone(tz));
 
-        hour = hour + tzoffset; //8
-
-        if(hour > 12){
-            Am = true;
-            Pm = false;
-
-            hour = hour - 12;
-        }
-
-        if(Am){
-            return "AM";
-        }
-        if(Pm){
-            return "PM";
-        }
-
-        return " ";
+       return sdf.format(currentTime).substring(6);
 
     }
 

@@ -36,10 +36,10 @@ public class startingScreenController {
         msc.setLabels(location);
 
 
-
-
         //root = FXMLLoader.load(getClass().getResource("main.fxml"));
         stage = (Stage)((Node)k.getSource()).getScene().getWindow();
+        stage.setX(60);
+        stage.setY(40);
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

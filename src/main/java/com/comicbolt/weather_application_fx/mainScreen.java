@@ -15,7 +15,6 @@ public class mainScreen extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1315, 760);
         scene.getStylesheets().addAll(this.getClass().getResource("mainScreen.css").toExternalForm());
         stage.setTitle("FindMyWeather");
-        stage.centerOnScreen();
         stage.setScene(scene);
         stage.show();
     }

@@ -3,11 +3,20 @@ package com.comicbolt.weather_application_fx;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class mainScreenController {
@@ -18,6 +27,10 @@ public class mainScreenController {
             alertLabel, dayLabel,timeLabel, AmPmLabel;
     @FXML
     private ScrollPane alertPane;
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
 
     @FXML
@@ -34,6 +47,9 @@ public class mainScreenController {
     private Label[] lowDays;
     private WeatherApiRequest api;
     private Thread MinuteUpdater;
+
+    @FXML
+    private MenuBar menuBar;
 
 
     private int  minCounter = 0, hourCounter = 0,secCounter = 0, hour,min;
@@ -111,48 +127,10 @@ public class mainScreenController {
 
     //timeLabel.setText(api.getTimeAtLocation());
     public void MinuteUpdater(){
-//        String currentTime = api.getTimeAtLocation();
-//        hour = Integer.parseInt(currentTime.substring(0,currentTime.indexOf(":")));
-//        min = Integer.parseInt(currentTime.substring(currentTime.indexOf(":")+1));
-//        minCounter = 0;
-//        hourCounter = 0;
-//        secCounter = 0;
+
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),e -> {
 
-//            if(secCounter == 60){
-//                minCounter++;
-//                min = min + minCounter;
-//                if(min < 10){
-//                    timeLabel.setText(hour + ":0" + min);
-//                }
-//                else{
-//                    timeLabel.setText(hour + ":" + min);
-//                }
-//                secCounter = 0;
-//            }
-//
-//            if (minCounter == 60){
-//                hourCounter++;
-//                hour = hour + hourCounter;
-//                if(min < 10){
-//                    timeLabel.setText(hour + ":0" + min);
-//                }
-//                else{
-//                    timeLabel.setText(hour + ":" + min);
-//                }
-//                minCounter = 0;
-//            }
-//
-//            if(AmPmLabel.getText().equals("AM") && hour == 12){
-//                AmPmLabel.setText("PM");
-//            }
-//            if(AmPmLabel.getText().equals("PM") && hour == 12){
-//                AmPmLabel.setText("AM");
-//            }
-//
-//            secCounter++;
-//           // System.out.println(secCounter);
             timeLabel.setText(api.getTimeAtLocation());
 
         }));
@@ -161,6 +139,22 @@ public class mainScreenController {
         timeline.play();
 
     }
+
+    @FXML
+    public void goHome() throws IOException {
+        root = FXMLLoader.load(getClass().getResource("startingScreen.fxml"));
+        stage = (Stage)menuBar.getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void exitProgram(ActionEvent k){
+        stage = (Stage)menuBar.getScene().getWindow();
+        stage.close();
+    }
+
 
 
 

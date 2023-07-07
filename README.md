@@ -9,8 +9,9 @@ and organized fashion to its users.
 
 ### Current Features
 - Can display the current temperature at user's location
+- Can display the current conditions at the user's location
 - Can display the high's and low's of next 10 days at user's location
-- Can display the temperature for the next 10 days at user's location
+- Can display the conditions for the next 10 days at user's location
 
 ### Installation
 - Step 1: Download the code from github in a directory of your choice 

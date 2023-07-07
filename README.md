@@ -39,7 +39,7 @@ Enter your desired location in that screen. In this case, the location is London
 
 <img src="/assets/locationScreen.png" width="400" align="center" alt="Image failed to load"/>
 
-Simply click enter. You will be greeted with following screen. That screen 
+- Simply click enter. You will be greeted with following screen. That screen 
 will give all the data that you need.
 
 <img src="/assets/mainScreen.png" width="600" align="center" alt="Image failed to load"/>

@@ -4,12 +4,11 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane layoutX="5.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.comicbolt.weather_application_fx.mainScreenController">
@@ -92,15 +91,207 @@
                            </children>
                         </HBox>
                         <Label prefHeight="33.0" prefWidth="704.0" text="Label" visible="false" />
-                        <ScrollPane fx:id="alertPane" prefHeight="294.0" prefWidth="704.0">
-                           <content>
-                              <Label fx:id="alertLabel" alignment="TOP_LEFT" prefHeight="291.0" prefWidth="684.0">
-                                 <font>
-                                    <Font size="26.0" />
-                                 </font>
-                              </Label>
-                           </content>
-                        </ScrollPane>
+                        <Label alignment="CENTER" prefHeight="79.0" prefWidth="716.0" text="Hourly Weather" visible="false">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="295.0" prefWidth="716.0" visible="false">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="89.44" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="hourlyTime1" alignment="CENTER" prefHeight="43.0" prefWidth="118.0" text="5 PM">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="9.0" prefWidth="102.0" visible="false">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="hourlyImg1" fitHeight="85.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Images/rainingIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="hourlyTemp1" alignment="CENTER" prefHeight="9.0" prefWidth="102.0" text="60">
+                                       <font>
+                                          <Font size="48.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="89.44" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="hourlyTime2" alignment="CENTER" prefHeight="43.0" prefWidth="118.0" text="5 PM">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="9.0" prefWidth="102.0" visible="false">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="hourlyImg2" fitHeight="85.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Images/rainingIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="hourlyTemp2" alignment="CENTER" prefHeight="9.0" prefWidth="102.0" text="60">
+                                       <font>
+                                          <Font size="48.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="89.44" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="hourlyTime3" alignment="CENTER" prefHeight="43.0" prefWidth="118.0" text="5 PM">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="9.0" prefWidth="102.0" visible="false">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="hourlyImg3" fitHeight="85.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Images/rainingIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="hourlyTemp3" alignment="CENTER" prefHeight="9.0" prefWidth="102.0" text="60">
+                                       <font>
+                                          <Font size="48.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="89.44" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="hourlyTime4" alignment="CENTER" prefHeight="43.0" prefWidth="118.0" text="5 PM">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="9.0" prefWidth="102.0" visible="false">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="hourlyImg4" fitHeight="85.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Images/rainingIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="hourlyTemp4" alignment="CENTER" prefHeight="9.0" prefWidth="102.0" text="60">
+                                       <font>
+                                          <Font size="48.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="89.44" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="hourlyTime5" alignment="CENTER" prefHeight="43.0" prefWidth="118.0" text="5 PM">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="9.0" prefWidth="102.0" visible="false">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="hourlyImg5" fitHeight="85.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Images/rainingIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="hourlyTemp5" alignment="CENTER" prefHeight="9.0" prefWidth="102.0" text="60">
+                                       <font>
+                                          <Font size="48.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="89.44" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="hourlyTime6" alignment="CENTER" prefHeight="43.0" prefWidth="118.0" text="5 PM">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="9.0" prefWidth="102.0" visible="false">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="hourlyImg6" fitHeight="85.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Images/rainingIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="hourlyTemp6" alignment="CENTER" prefHeight="9.0" prefWidth="102.0" text="60">
+                                       <font>
+                                          <Font size="48.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="89.44" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="hourlyTime7" alignment="CENTER" prefHeight="43.0" prefWidth="118.0" text="5 PM">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="9.0" prefWidth="102.0" visible="false">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="hourlyImg7" fitHeight="85.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Images/rainingIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="hourlyTemp7" alignment="CENTER" prefHeight="9.0" prefWidth="102.0" text="60">
+                                       <font>
+                                          <Font size="48.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="89.44" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="hourlyTime8" alignment="CENTER" prefHeight="43.0" prefWidth="118.0" text="5 PM">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="9.0" prefWidth="102.0" visible="false">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="hourlyImg8" fitHeight="85.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Images/rainingIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="hourlyTemp8" alignment="CENTER" prefHeight="9.0" prefWidth="102.0" text="60">
+                                       <font>
+                                          <Font size="48.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                   <VBox prefHeight="750.0" prefWidth="614.0">
@@ -112,7 +303,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDay1" fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/sunnyIcon.png" />
                                  </image>
@@ -136,7 +327,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDay2" fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/rainingIcon.png" />
                                  </image>
@@ -160,7 +351,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDay3" fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/cloudyIcon.png" />
                                  </image>
@@ -184,7 +375,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDay4" fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/sunnyIcon.png" />
                                  </image>
@@ -208,7 +399,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDay5" fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/sunnyIcon.png" />
                                  </image>
@@ -232,7 +423,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDay6" fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/sunnyIcon.png" />
                                  </image>
@@ -256,7 +447,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDay7" fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/sunnyIcon.png" />
                                  </image>
@@ -280,7 +471,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDay8" fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/sunnyIcon.png" />
                                  </image>
@@ -304,7 +495,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDay9" fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/sunnyIcon.png" />
                                  </image>
@@ -328,7 +519,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDay10" fitHeight="74.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Images/sunnyIcon.png" />
                                  </image>

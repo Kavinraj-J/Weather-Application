@@ -81,6 +81,7 @@ public class WeatherApiRequest {
     public int getCurrentTemp(){
         ArrayList<Integer> hourArray = getHourArray();
         int hour = Integer.parseInt(getTimeAtLocation().substring(0,getTimeAtLocation().indexOf(":")));
+        System.out.println(getHourTimeArray());
         if(AmOrPm().equals("PM")){
             hour = hour + 12;
         }
@@ -92,9 +93,31 @@ public class WeatherApiRequest {
 
     }
 
+    public ArrayList<String> getImgPathArray(){
+        ArrayList<String> imgPaths = new ArrayList<String>();
+
+        for(int i = 0; i<val.length();i++){
+            JSONObject day  = val.getJSONObject(i);
+            imgPaths.add("Images/WeatherConditionIcons/"+day.getString("icon")+".png");
+
+        }
+        return imgPaths;
+    }
+
+    public ArrayList<String> getImgPathHourlyArray(){
+        ArrayList<String> imgPaths = new ArrayList<String>();
+        JSONObject currentDay = val.getJSONObject(0);
+        JSONArray hours = currentDay.getJSONArray("hours");
+        for(int i = 0; i<hours.length();i++){
+            JSONObject icon  = hours.getJSONObject(i);
+            imgPaths.add("Images/WeatherConditionIcons/"+icon.getString("icon")+".png");
+
+        }
+        return imgPaths;
+    }
+
     public ArrayList<Integer> getHourArray(){
         JSONObject currentDay = val.getJSONObject(0);
-        int currentTemp = (int) Math.round(currentDay.getDouble("temp"));
         JSONArray hours = currentDay.getJSONArray("hours");
         ArrayList<Integer> hourlyTemp = new ArrayList<Integer>();
         for(int i = 0; i<hours.length();i++){
@@ -105,6 +128,30 @@ public class WeatherApiRequest {
 
 
         return hourlyTemp;
+
+    }
+
+    public ArrayList<String> getHourTimeArray(){
+        JSONObject currentDay = val.getJSONObject(0);
+        JSONArray hours = currentDay.getJSONArray("hours");
+        ArrayList<String> hourlyTime = new ArrayList<String>();
+        for(int i = 0; i<hours.length();i++){
+            JSONObject temp  = hours.getJSONObject(i);
+
+            int hour = Integer.parseInt(temp.getString("datetime").substring(0,2));
+            if(hour == 0){
+                hourlyTime.add((hour + 12) + " AM");
+            }
+            else if(hour > 11){
+                hourlyTime.add((hour - 12) + " PM");
+            }
+            else{
+                hourlyTime.add((hour) + " AM");
+            }
+        }
+
+
+        return hourlyTime;
 
     }
 //TODO Finish time label and setup

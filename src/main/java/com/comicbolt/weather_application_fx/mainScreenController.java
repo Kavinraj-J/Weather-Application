@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -51,6 +53,12 @@ public class mainScreenController {
     @FXML
     private MenuBar menuBar;
 
+    @FXML
+    private ImageView imgDay1,imgDay2,imgDay3,imgDay4,imgDay5,imgDay6,imgDay7,imgDay8,imgDay9,imgDay10;
+
+    @FXML
+    private ImageView[] imgs;
+
 
     private int  minCounter = 0, hourCounter = 0,secCounter = 0, hour,min;
 
@@ -62,9 +70,12 @@ public class mainScreenController {
         ArrayList<Integer> minTemp = api.getMinTempArray();
         ArrayList<String> alertArray = api.getAlertArray();
         ArrayList<String> dayArray = api.getDayOfWeekArray();
+        ArrayList<String> imgPaths = api.getImgPathArray();
+
         ForecastDays = new Label[]{day1, day2, day3, day4, day5, day6, day7, day8, day9, day10};
         highDays = new Label[]{highday1, highday2, highday3, highday4, highday5, highday6, highday7, highday8, highday9, highday10};
         lowDays = new Label[]{lowday1, lowday2, lowday3, lowday4, lowday5, lowday6, lowday7, lowday8, lowday9, lowday10};
+        imgs = new ImageView[]{imgDay1,imgDay2,imgDay3,imgDay4,imgDay5,imgDay6,imgDay7,imgDay8,imgDay9,imgDay10};
 
         MinuteUpdater = new Thread(this::MinuteUpdater);
         MinuteUpdater.start();
@@ -87,8 +98,7 @@ public class mainScreenController {
             alert = " * " + alertArray.get(i) + "\n";
         }
 
-        alertLabel.setText("ALERT AREA GONNA BE SEPERATE WINDOW!!");
-        alertPane.setContent(alertLabel);
+
 
 
         for(int i = 1; i < dayArray.size(); i++){
@@ -120,6 +130,16 @@ public class mainScreenController {
 
         }
 
+        System.out.println(imgPaths);
+        for(int i = 1; i < imgPaths.size(); i++){
+            for(int j = 0; j<imgs.length; j++){
+                if(i == j+1){
+                    Image image = new Image(getClass().getResourceAsStream(imgPaths.get(i)));
+                    imgs[j].setImage(image);
+                }
+            }
+
+        }
 
 
 

@@ -31,6 +31,8 @@ Be sure to not include the `.jar` file name.
 ```
 
 - You are now all set to go!
+- Expect a release soon to download in a much easier way!
+
 
 
 ### To do List

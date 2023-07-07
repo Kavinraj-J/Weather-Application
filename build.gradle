@@ -25,9 +25,11 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-  mainModule = 'com.comicbolt.weather_application_fx'
-  mainClass = 'com.comicbolt.weather_application_fx.HelloApplication'
+  mainClass = 'com.comicbolt.weather_application_fx.Main'
+  mainModule.set('com.comicbolt.weather_application_fx')
 }
+
+
 
 javafx {
   version = '17.0.6'
@@ -38,7 +40,7 @@ dependencies {
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-  implementation 'org.json:json:20211205'
+  implementation 'org.json:json:20230227'
 }
 
 test {
@@ -50,6 +52,22 @@ jlink {
   launcher {
     name = 'app'
   }
+}
+
+apply plugin: 'java'
+jar {
+  duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+  manifest {
+    attributes(
+            'Main-Class': 'com.comicbolt.weather_application_fx.Main'
+    )
+  }
+
+  from{
+    configurations.runtimeClasspath.collect{it.isDirectory() ? it : zipTree(it)}
+  }
+
+
 }
 
 jlinkZip {

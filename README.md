@@ -1,6 +1,6 @@
 # Weather-Application-FX ![license](https://img.shields.io/badge/license-MIT-blue)  <img style="float: right;" src="https://i.pinimg.com/originals/77/0b/80/770b805d5c99c7931366c2e84e88f251.png" alt=moon width="48" height="48">
 
-A javafx desktop application that presents the user with the weather at 
+A JavaFX desktop application that presents the user with the weather at 
 their current location. Written in Java, the application 
 uses the Visual Crossing Weather API to get the latest weather 
 forecast information as well as alerts in the area. The application presents
